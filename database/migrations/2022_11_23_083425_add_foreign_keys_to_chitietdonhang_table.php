@@ -14,8 +14,8 @@ class AddForeignKeysToChitietdonhangTable extends Migration
     public function up()
     {
         Schema::table('chitietdonhang', function (Blueprint $table) {
-            $table->foreign(['iddonhang'], 'chitietdonhang_ibfk_1')->references(['madh'])->on('donhang')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->foreign(['masp'], 'chitietdonhang_ibfk_2')->references(['masp'])->on('sanpham')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign(['iddonhang'], 'chitietdonhang_ibfk_1')->references(['madh'])->on('donhang')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -27,8 +27,8 @@ class AddForeignKeysToChitietdonhangTable extends Migration
     public function down()
     {
         Schema::table('chitietdonhang', function (Blueprint $table) {
-            $table->dropForeign('chitietdonhang_ibfk_1');
             $table->dropForeign('chitietdonhang_ibfk_2');
+            $table->dropForeign('chitietdonhang_ibfk_1');
         });
     }
 }

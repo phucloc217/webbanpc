@@ -14,8 +14,8 @@ class AddForeignKeysToChitietgiohangTable extends Migration
     public function up()
     {
         Schema::table('chitietgiohang', function (Blueprint $table) {
-            $table->foreign(['magiohang'], 'chitietgiohang_ibfk_1')->references(['magiohang'])->on('giohang')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->foreign(['masp'], 'chitietgiohang_ibfk_2')->references(['masp'])->on('sanpham')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign(['magiohang'], 'chitietgiohang_ibfk_1')->references(['magiohang'])->on('giohang')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -27,8 +27,8 @@ class AddForeignKeysToChitietgiohangTable extends Migration
     public function down()
     {
         Schema::table('chitietgiohang', function (Blueprint $table) {
-            $table->dropForeign('chitietgiohang_ibfk_1');
             $table->dropForeign('chitietgiohang_ibfk_2');
+            $table->dropForeign('chitietgiohang_ibfk_1');
         });
     }
 }

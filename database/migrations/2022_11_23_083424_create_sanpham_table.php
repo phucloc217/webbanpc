@@ -20,6 +20,12 @@ class CreateSanphamTable extends Migration
             $table->text('mota')->nullable();
             $table->string('anh')->default('default.img');
             $table->integer('madanhmuc')->index('madanhmuc');
+            $table->string('manhinh', 50)->nullable();
+            $table->string('cpu', 50)->nullable();
+            $table->string('ram', 50)->nullable();
+            $table->string('ocung', 50)->nullable();
+            $table->string('card', 50)->nullable();
+            $table->string('cam', 50)->nullable();
         });
     }
 
