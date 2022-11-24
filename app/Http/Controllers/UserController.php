@@ -29,5 +29,9 @@ class UserController extends Controller
             }
 
         }
+        else
+        {
+            return redirect()->back()->withErrors(['msg' => 'Sai tên đăng nhập']); 
+        }
     }
 }
