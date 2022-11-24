@@ -82,12 +82,28 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="admin/danhmuc" class="nav-link  @yield('danhmuc')">
+            <a href="#" class="nav-link  @yield('danhmuc')">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Quản lý danh mục
               </p>
+              <i class="right fas fa-angle-left"></i>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="danhmuc" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách danh mục</p>
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="admin/danhmuc/themdanhmuc" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Thêm danh mục</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
@@ -179,6 +195,6 @@
 <!-- AdminLTE for demo purposes -->
 @yield('js')
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{url("adminAsset/dist/js/pages/dashboard.js")}}"></script>
+
 </body>
 </html>

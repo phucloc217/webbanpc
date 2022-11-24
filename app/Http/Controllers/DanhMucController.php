@@ -10,4 +10,16 @@ class DanhMucController extends Controller
     {
         return view("AdminViews.danhmuc");
     }
+    public function Insert()
+    {
+        
+    }
+    public function Update()
+    {
+            
+    }
+    public function Delêt()
+    {
+            
+    }
 }
