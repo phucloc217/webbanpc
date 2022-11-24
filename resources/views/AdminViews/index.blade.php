@@ -605,3 +605,6 @@
     </section>
     <!-- /.content -->
 @endsection
+@section('js')
+<script src="{{url("adminAsset/dist/js/pages/dashboard.js")}}"></script>
+@endsection

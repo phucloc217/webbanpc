@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,11 +23,9 @@ Route::get('/admin', function () {
     return view("AdminViews.index");
 });
 Route::prefix('admin')->group(function () {
-    Route::get('index', function () {
-        return view("AdminViews.index");
-    });
+    Route::post('login',[UserController::class,'login']);
     Route::get('login', function () {
         return view("AdminViews.login");
     });
-    Route::post('login',[UserController::class,'login']);
+    Route::get('danhmuc', [DanhMucController::class,'index']);
 });

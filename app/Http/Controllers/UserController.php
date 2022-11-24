@@ -20,7 +20,7 @@ class UserController extends Controller
             if($user!=null&&Hash::check($password,$user->password))
             {
                 $user->makeHidden('password');
-                Session::put('variableName', $user);   
+                Session::put('user', $user);   
                 return redirect("/admin");
             }
             else
