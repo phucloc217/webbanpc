@@ -24,9 +24,10 @@
     <div class="card-body">
       <p class="login-box-msg">Đăng nhập để tiếp tục</p>
 
-      <form action="../../index3.html" method="post">
+      <form action="/admin/login" method="post">
+        @csrf
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Tên đăng nhập">
+          <input type="text" class="form-control" name="username" placeholder="Tên đăng nhập">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -34,19 +35,22 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Mật khẩu">
+          <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        @if($errors->any())
+              <p class="text-danger">{{$errors->first()}}</p>
+        @endif
         <div class="row">
           <div class="col-8">
           </div>
           <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block" name="login-btn">Đăng nhập</button>
           </div>
           <!-- /.col -->
         </div>
