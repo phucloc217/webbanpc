@@ -28,4 +28,8 @@ Route::prefix('admin')->group(function () {
         return view("AdminViews.login");
     });
     Route::get('danhmuc', [DanhMucController::class,'index']);
+    Route::post('danhmuc/themdanhmuc', [DanhMucController::class,'Insert']);
+    Route::get('danhmuc/themdanhmuc', function () {
+        return view("AdminViews.themdanhmuc");
+    });
 });
