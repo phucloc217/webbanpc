@@ -1,6 +1,6 @@
 @extends('AdminViews/Template/AdminTemplate')
 @section('title')
-    Quản lý danh mục
+    Quản lý người dùng
 @endsection
 @section('style')
       <!-- DataTables -->
@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{url("adminAsset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")}}">
   <link rel="stylesheet" href="{{url("adminAsset/plugins/datatables-buttons/css/buttons.bootstrap4.min.css")}}">
 @endsection
-@section('danhmuc')
+@section('nguoidung')
     active
 @endsection
 @section('content')
@@ -17,12 +17,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Danh mục</h1>
+            <h1>Người dùng</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="admin">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Danh mục</li>
+              <li class="breadcrumb-item"><a href="{{url("admin")}}">Trang chủ</a></li>
+              <li class="breadcrumb-item active">Người dùng</li>
             </ol>
           </div>
         </div>
@@ -40,18 +40,22 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Mã danh mục</th>
-                    <th>Tên danh mục</th>
-                    <th>Số lượng sản phẩm</th>
+                    <th>Mã người dùng</th>
+                    <th>Họ tên</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
                     <th>Thao tác</th>
                   </tr>
                   </thead>
                   <tbody>
                     @foreach ($data as $item)
                     <tr>
-                      <td>{{$item->madanhmuc}}</td>
-                      <td>{{$item->tendanhmuc}}</td>
-                      <td>{{$item->sanphams()->count()}}</td>
+                      <td>{{$item->id}}</td>
+                      <td>{{$item->tenuser}}</td>
+                      <td>{{$item->username}}</td>
+                      <td>{{$item->email}}</td>
+                      <td>{{$item->sdt}}</td>
                       <td> </td>
                     </tr>
                     @endforeach
@@ -60,9 +64,11 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Mã danh mục</th>
-                    <th>Tên danh mục</th>
-                    <th>Số lượng sản phẩm</th>
+                    <th>Mã người dùng</th>
+                    <th>Họ tên</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
                     <th>Thao tác</th>
                   </tr>
                   </tfoot>

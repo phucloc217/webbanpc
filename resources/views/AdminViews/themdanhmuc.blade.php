@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/admin">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="{{url("admin")}}">Trang chủ</a></li>
                         <li class="breadcrumb-item "><a href="{{ url('/admin/danhmuc') }}">Danh mục</a></li>
                         <li class="breadcrumb-item active">Thêm danh mục</li>
                     </ol>
@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên danh mục</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="tendanhmuc"
-                                        placeholder="Tên danh mục">
+                                        placeholder="Tên danh mục" required>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" name="them" class="btn btn-primary">Lưu</button>
@@ -61,13 +61,7 @@
                         </form>
                     </div>
                     <!-- /.card -->
-
-
-
-
-
                 </div>
-
             </div>
         </div><!-- /.container-fluid -->
     </section>

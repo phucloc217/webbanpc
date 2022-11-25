@@ -130,12 +130,28 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link @yield('nguoidung')">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Quản lý người dùng
               </p>
+              <i class="right fas fa-angle-left"></i>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url("admin/nguoidung")}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách người dùng</p>
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url("admin/nguoidung/themnguoidung")}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Thêm người dùng</p>
+                </a>
+              </li>
+            </ul>
           </li>
           
         </ul>

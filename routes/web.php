@@ -27,6 +27,17 @@ Route::prefix('admin')->group(function () {
     Route::get('login', function () {
         return view("AdminViews.login");
     });
+
+
+    
+    Route::get('nguoidung', [UserController::class,'index']);
+    Route::post('nguoidung/themnguoidung', [UserController::class,'Insert']);
+    Route::get('nguoidung/themnguoidung', function () {
+        return view("AdminViews.themnguoidung");
+    });
+
+
+
     Route::get('danhmuc', [DanhMucController::class,'index']);
     Route::post('danhmuc/themdanhmuc', [DanhMucController::class,'Insert']);
     Route::get('danhmuc/themdanhmuc', function () {
