@@ -45,6 +45,10 @@ Route::prefix('admin')->group(function () {
     Route::get('khachhang/them', function () {
         return view("AdminViews.themkhachhang");
     });
+    Route::get('khachhang/chinhsua/{id}', [KhachHangController::class,'Update']);
+    Route::post('khachhang/chinhsua/{id}', [KhachHangController::class,'Update']);
+    Route::get('khachhang/xoa/{id}', [KhachHangController::class,'Delete']);
+
     Route::get('danhmuc', [DanhMucController::class,'index']);
     Route::post('danhmuc/themdanhmuc', [DanhMucController::class,'Insert']);
     Route::get('danhmuc/themdanhmuc', function () {

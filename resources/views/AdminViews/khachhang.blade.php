@@ -62,7 +62,7 @@
                                             <td>
                                                 <div class="row justify-conent-center">
                                                     <div class="col-3"><a
-                                                            href="{{ url("admin/nguoidung/chinhsua/$item->makh") }}"
+                                                            href="{{ url("admin/khachhang/chinhsua/$item->makh") }}"
                                                             class="btn btn-warning"><i class="fa fa-table"
                                                                 aria-hidden="true"></i></a></div>
                                                     <div class="col-3"><button class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal" data-whatever="{{$item->makh}}"><i
@@ -151,8 +151,8 @@
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-            modal.find('.modal-body').text('Bạn có chắc muốn xóa người dùng '+ recipient+' không?')
-            $("#idDelete").attr("href", "/admin/nguoidung/xoa/"+recipient)
+            modal.find('.modal-body').text('Bạn có chắc muốn xóa khách hàng '+ recipient+' không?')
+            $("#idDelete").attr("href", "/admin/khachhang/xoa/"+recipient)
         })
     </script>
 @endsection
