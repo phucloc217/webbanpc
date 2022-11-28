@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\KhachHangController;
+use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,4 +55,11 @@ Route::prefix('admin')->group(function () {
     Route::get('danhmuc/themdanhmuc', function () {
         return view("AdminViews.themdanhmuc");
     });
+
+    Route::get('sanpham', [SanPhamController::class,'index']);
+    Route::post('sanpham/them', [SanPhamController::class,'Insert']);
+    Route::get('sanpham/them', [SanPhamController::class,"Insert"]);
+    Route::get('sanpham/chinhsua/{id}', [SanPhamController::class,'Update']);
+    Route::post('sanpham/chinhsua/{id}', [SanPhamController::class,'Update']);
+    Route::get('sanpham/xoa/{id}', [SanPhamController::class,'Delete']);
 });

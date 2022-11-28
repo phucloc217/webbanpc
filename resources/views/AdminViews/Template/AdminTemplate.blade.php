@@ -111,7 +111,21 @@
               <p>
                 Quản lý sản phẩm
               </p>
+              <i class="right fas fa-angle-left"></i>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url("admin/sanpham")}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách sản phẩm</p> </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url("admin/sanpham/them")}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Thêm sản phẩm</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link  @yield('donhang')">
