@@ -106,7 +106,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link  @yield('sanpham')">
               <i class="nav-icon fas fa-desktop"></i>
               <p>
                 Quản lý sản phẩm
@@ -114,7 +114,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link  @yield('donhang')">
               <i class="nav-icon fas fa-list-alt"></i>
               <p>
                 Quản lý đơn hàng
@@ -122,12 +122,28 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="pages/widgets.html" class="nav-link  @yield('khachhang')">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Quản lý khách hàng
               </p>
+              <i class="right fas fa-angle-left"></i>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url("admin/khachhang")}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách khách hàng</p>
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url("admin/khachhang/them")}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Thêm khách hàng</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link @yield('nguoidung')">

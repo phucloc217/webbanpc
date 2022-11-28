@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url('adminAsset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ url('adminAsset/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 @endsection
-@section('nguoidung')
+@section('khachhang')
     active
 @endsection
 @section('content')
@@ -49,25 +49,23 @@
                                         <th>Họ tên</th>
                                         <th>Số điện thoại</th>
                                         <th>Địa chỉ</th>
-                                        <th>Số điện thoại</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
                                         <tr>
-                                            <td>{{ $item->id }}</td>
-                                            <td>{{ $item->tenuser }}</td>
-                                            <td>{{ $item->username }}</td>
-                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->makh }}</td>
+                                            <td>{{ $item->tenkh }}</td>
                                             <td>{{ $item->sdt }}</td>
+                                            <td>{{ $item->diachi }}</td>
                                             <td>
                                                 <div class="row justify-conent-center">
                                                     <div class="col-3"><a
-                                                            href="{{ url("admin/nguoidung/chinhsua/$item->id") }}"
+                                                            href="{{ url("admin/nguoidung/chinhsua/$item->makh") }}"
                                                             class="btn btn-warning"><i class="fa fa-table"
                                                                 aria-hidden="true"></i></a></div>
-                                                    <div class="col-3"><button class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal" data-whatever="{{$item->id}}"><i
+                                                    <div class="col-3"><button class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal" data-whatever="{{$item->makh}}"><i
                                                                 class="fa fa-trash" aria-hidden="true"></i></button></div>
                                                     <div class="col-3">
                                                         <button class="btn btn-primary"><i class="fa fa-key"
@@ -80,11 +78,10 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Mã người dùng</th>
+                                        <th>Mã khách hàng</th>
                                         <th>Họ tên</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
                                         <th>Số điện thoại</th>
+                                        <th>Địa chỉ</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </tfoot>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DanhMucController;
+use App\Http\Controllers\KhachHangController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,8 +40,11 @@ Route::prefix('admin')->group(function () {
         return view("AdminViews.themnguoidung");
     });
 
-
-
+    Route::get('khachhang', [KhachHangController::class,'index']);
+    Route::post('khachhang/them', [KhachHangController::class,'Insert']);
+    Route::get('khachhang/them', function () {
+        return view("AdminViews.themkhachhang");
+    });
     Route::get('danhmuc', [DanhMucController::class,'index']);
     Route::post('danhmuc/themdanhmuc', [DanhMucController::class,'Insert']);
     Route::get('danhmuc/themdanhmuc', function () {
