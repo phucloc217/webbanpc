@@ -32,6 +32,9 @@ Route::prefix('admin')->group(function () {
     
     Route::get('nguoidung', [UserController::class,'index']);
     Route::post('nguoidung/themnguoidung', [UserController::class,'Insert']);
+    Route::get('nguoidung/chinhsua/{id}', [UserController::class,'Update']);
+    Route::get('nguoidung/xoa/{id}', [UserController::class,'Delete']);
+    Route::post('nguoidung/chinhsua/{id}', [UserController::class,'Update']);
     Route::get('nguoidung/themnguoidung', function () {
         return view("AdminViews.themnguoidung");
     });

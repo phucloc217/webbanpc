@@ -30,6 +30,10 @@ class Khachhang extends Model
 	public $incrementing = false;
 	public $timestamps = false;
 
+	protected $hidden = [
+		'matkhau'
+	];
+
 	protected $fillable = [
 		'tenkh',
 		'sdt',

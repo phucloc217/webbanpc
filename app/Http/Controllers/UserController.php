@@ -79,5 +79,45 @@ class UserController extends Controller
             return redirect()->back();
         }
     }
+    public function Update($id)
+    {
+        if (isset($_POST['luu'])) {
+            if (!isset($_POST['hoten'])||$_POST['hoten'] == "") {
+                return redirect("/admin/nguoidung/chinhsua/$id")->with('err-msg', 'Họ tên không được bỏ trống');
+            } else {
+                $user = User::where("id", "LIKE", $id)->first();
+                if ($user != null) {
+                    $user->tenuser = $_POST['hoten'];
+                    $user->email = $_POST['email'];
+                    $user->sdt = $_POST['sdt'];
+                    $saved = $user->save();
+                    if ($saved) {
+                        return redirect("/admin/nguoidung/chinhsua/$id")->with('message', 'Cập nhật thành công');
+                    } else {
+                        return redirect("/admin/nguoidung/chinhsua/$id")->with('err-msg', 'Cập nhật không thành công');
+                    }
+                } else {
+                    return redirect("/admin/nguoidung/chinhsua/$id")->with('err-msg', 'User không tồn tại');
+                }
+            }
+
+        } else {
+            $data = User::where("id", "LIKE", $id)->get();
+            if ($data->isNotEmpty()) {
+                return view("AdminViews.suanguoidung",compact("data"));
+            }
+            return redirect()->back();
+        }
+    }
+    public function Delete($id)
+    {
+        $user = User::find($id);
+        if($user!=null)
+        {
+            $user->delete();
+            return redirect("admin/nguoidung")->with('message', 'Xóa thành công');
+        }
+         return redirect()->back();
+    }
    
 }

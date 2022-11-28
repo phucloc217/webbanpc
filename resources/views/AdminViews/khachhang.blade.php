@@ -1,6 +1,6 @@
 @extends('AdminViews/Template/AdminTemplate')
 @section('title')
-    Quản lý người dùng
+    Quản lý khách hàng
 @endsection
 @section('style')
     <!-- DataTables -->
@@ -17,12 +17,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Người dùng</h1>
+                    <h1>Khách hàng</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ url('admin') }}">Trang chủ</a></li>
-                        <li class="breadcrumb-item active">Người dùng</li>
+                        <li class="breadcrumb-item active">Khách hàng</li>
                     </ol>
                 </div>
             </div>
@@ -45,10 +45,10 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Mã người dùng</th>
+                                        <th>Mã khách hàng</th>
                                         <th>Họ tên</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Địa chỉ</th>
                                         <th>Số điện thoại</th>
                                         <th>Thao tác</th>
                                     </tr>
