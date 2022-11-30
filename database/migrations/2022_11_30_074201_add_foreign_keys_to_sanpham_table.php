@@ -14,7 +14,7 @@ class AddForeignKeysToSanphamTable extends Migration
     public function up()
     {
         Schema::table('sanpham', function (Blueprint $table) {
-            $table->foreign(['madanhmuc'], 'sanpham_ibfk_1')->references(['madanhmuc'])->on('danhmuc')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign(['madanhmuc'], 'sanpham_ibfk_1')->references(['madanhmuc'])->on('danhmuc');
         });
     }
 

@@ -14,7 +14,7 @@ class CreateDanhmucTable extends Migration
     public function up()
     {
         Schema::create('danhmuc', function (Blueprint $table) {
-            $table->integer('madanhmuc')->primary();
+            $table->integer('madanhmuc', true);
             $table->string('tendanhmuc', 50);
         });
     }

@@ -14,11 +14,11 @@ class CreateSanphamTable extends Migration
     public function up()
     {
         Schema::create('sanpham', function (Blueprint $table) {
-            $table->integer('masp')->primary();
+            $table->integer('masp', true);
             $table->string('tensp', 50);
             $table->integer('gia');
             $table->text('mota')->nullable();
-            $table->string('anh')->default('default.img');
+            $table->string('anh')->default('default.jpg');
             $table->integer('madanhmuc')->index('madanhmuc');
             $table->string('manhinh', 50)->nullable();
             $table->string('cpu', 50)->nullable();
