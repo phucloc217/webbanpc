@@ -51,48 +51,48 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="/admin/sanpham/them" method="POST">
+                        <form action="/admin/sanpham/them" enctype="multipart/form-data" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên sản phẩm</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="tensp"
-                                        placeholder="Tên danh mục" required>
+                                        placeholder="Tên sản phẩm" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">CPU</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="cpu"
-                                        placeholder="Tên danh mục" required>
+                                        placeholder="CPU" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">RAM</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="ram"
-                                        placeholder="Tên danh mục" required>
+                                        placeholder="RAM" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Card</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="card"
-                                        placeholder="Tên danh mục" required>
+                                        placeholder="Card" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ổ cứng</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="ocung"
-                                        placeholder="Tên danh mục" required>
+                                        placeholder="Ổ cứng" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Camera</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="camera"
-                                        placeholder="Tên danh mục" required>
+                                        placeholder="Camera" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Màn hình</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="manhinh"
-                                        placeholder="Tên danh mục" required>
+                                        placeholder="Màn hình" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Giá</label>
                                     <input type="number" min="1000" class="form-control" id="exampleInputEmail1"
-                                        name="gia" placeholder="Tên danh mục" required>
+                                        name="gia" placeholder="Giá" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Danh mục</label>
@@ -107,8 +107,8 @@
                                     <!-- <label for="customFile">Custom File</label> -->
 
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                        <input type="file" class="custom-file-input" id="customFile" name="img" accept="image/png, image/gif, image/jpeg" >
+                                        <label class="custom-file-label" for="customFile">Chọn hình</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -120,7 +120,7 @@
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
-                                            <textarea id="summernote">
+                                            <textarea id="summernote" name="mota">
                                             
                                           </textarea>
                                         </div>

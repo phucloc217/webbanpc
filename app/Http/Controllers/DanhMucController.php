@@ -10,7 +10,7 @@ class DanhMucController extends Controller
 {
     public function index()
     {
-        $data = Danhmuc::leftJoin('sanpham','danhmuc.madanhmuc','=','sanpham.madanhmuc')->select('danhmuc.madanhmuc','tendanhmuc')->get();
+        $data = Danhmuc::all();
         return view("AdminViews.danhmuc",compact('data'));
     }
     public function Insert()

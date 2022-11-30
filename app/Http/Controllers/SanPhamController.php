@@ -11,41 +11,44 @@ class SanPhamController extends Controller
     public function index()
     {
         $data = Sanpham::all();
-        return view("AdminViews.sanpham",compact('data'));
+        return view("AdminViews.sanpham", compact('data'));
     }
-    public function Insert()
+    public function Insert(Request $request)
     {
         if (isset($_POST['them'])) {
-            // if ($_POST['hoten'] == "") {
-            //     return redirect("/admin/nguoidung/themnguoidung")->with('err-msg', 'Họ tên không được bỏ trống');
-            // } else if ($_POST['username'] == "") {
-            //     return redirect("/admin/nguoidung/themnguoidung")->with('err-msg', 'Username không được bỏ trống');
-            // } else if (!isset($_POST['matkhau']) || $_POST['matkhau'] == "") {
-            //     return redirect("/admin/nguoidung/themnguoidung")->with('err-msg', 'Mật khẩu không được bỏ trống');
-            // } else {
-            //     $user = User::where("username", "LIKE", $_POST['username'])->get();
-            //     if ($user->isNotEmpty()) {
-            //          return redirect("/admin/nguoidung/themnguoidung")->with('err-msg', 'Username đã tồn tại');
-            //     } else {
-            //         $user = new User();
-            //         $user->id=$this->CreateUserID();
-            //         $user->tenuser = $_POST['hoten'];
-            //         $user->email = $_POST['email'];
-            //         $user->sdt = $_POST['sdt'];
-            //         $user->username = $_POST['username'];
-            //         $user->password = Hash::make($_POST['matkhau']);
-            //         $saved = $user->save();
-            //         if ($saved) {
-            //             return redirect("/admin/nguoidung/themnguoidung")->with('message', 'Thêm thành công');
-            //         } else {
-            //             return redirect("/admin/nguoidung/themnguoidung")->with('err-msg', 'Thêm không thành công');
-            //         }
-            //     }
-            // }
-
+            if (!isset($_POST['tensp']) || empty($_POST['tensp'])) {
+                return redirect("/admin/sanpham/them")->with('err-msg', 'Tên sản phẩm không được bỏ trống');
+            } else if (!isset($_POST['gia']) || empty($_POST['gia'])) {
+                return redirect("/admin/sanpham/them")->with('err-msg', 'Giá sản phẩm không được bỏ trống');
+            } else {
+                $sanpham = new Sanpham;
+                $sanpham->tensp = $_POST['tensp'];
+                $sanpham->cpu = $_POST['cpu'];
+                $sanpham->ram = $_POST['ram'];
+                $sanpham->card = $_POST['card'];
+                $sanpham->ocung = $_POST['ocung'];
+                $sanpham->cam = $_POST['camera'];
+                $sanpham->manhinh = $_POST['manhinh'];
+                $sanpham->gia = (int) $_POST['tensp'];
+                $sanpham->madanhmuc = $_POST['danhmuc'];
+                $sanpham->mota = $_POST['mota'];
+                if ($request->hasFile('img')) {
+                 $sanpham->anh = basename($request->file('img')->store('public/product-img', 'local'));
+                }
+                else{
+                    $sanpham->anh = "default.jpg";
+                }
+                
+                $saved = $sanpham->save();
+                if ($saved) {
+                    return redirect("/admin/sanpham/them")->with('message', 'Thêm thành công');
+                } else {
+                    return redirect("/admin/sanpham/them")->with('err-msg', 'Thêm không thành công');
+                } 
+            }
         } else {
             $data = Danhmuc::all();
-            return view("AdminViews.themsanpham",compact("data"));
+            return view("AdminViews.themsanpham", compact("data"));
         }
     }
 }

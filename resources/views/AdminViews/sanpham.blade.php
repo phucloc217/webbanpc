@@ -1,6 +1,6 @@
 @extends('AdminViews/Template/AdminTemplate')
 @section('title')
-    Quản lý người dùng
+    Quản lý sản phẩm
 @endsection
 @section('style')
     <!-- DataTables -->
@@ -63,7 +63,7 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $item->masp }}</td>
-                                            <td><img src="{{url("ProductImages/$item->anh")}}" alt="" class="img-thumbnail"></td>
+                                            <td><img src="{{url("storage/product-img/$item->anh")}}" alt="" class="img-thumbnail"></td>
                                             <td>{{ $item->tensp }}</td>
                                             <td>{{ $item->cpu }}</td>
                                             <td>{{ $item->ram }}</td>
@@ -81,7 +81,7 @@
                                                                 aria-hidden="true"></i></a></div>
                                                 </div>
                                                 <div class="row justify-conent-center">
-                                                    <div class="col-6"><button class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal" data-whatever="{{$item->id}}"><i
+                                                    <div class="col-6"><button class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal" data-ten="{{$item->tensp}}" data-whatever="{{$item->masp}}"><i
                                                         class="fa fa-trash" aria-hidden="true"></i></button></div>
                                                 </div>
                                             </td>
@@ -167,10 +167,11 @@
         $('#exampleModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var recipient = button.data('whatever') // Extract info from data-* attributes
+            var recipient1 = button.data('ten') // Extract info from data-* attributes
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-            modal.find('.modal-body').text('Bạn có chắc muốn xóa người dùng '+ recipient+' không?')
+            modal.find('.modal-body').text('Bạn có chắc muốn xóa sản phẩm '+ recipient1+' không?')
             $("#idDelete").attr("href", "/admin/sanpham/xoa/"+recipient)
         })
     </script>
