@@ -51,4 +51,16 @@ class SanPhamController extends Controller
             return view("AdminViews.themsanpham", compact("data"));
         }
     }
+    public function Delete($id)
+    {
+        $sanpham = Sanpham::where("masp","=",$id)->first();
+        if($sanpham!=null)
+        {
+            if($sanpham->anh!="default.jpg")
+                unlink(storage_path('app/public/product-img/'.$sanpham->anh));
+            $sanpham->delete();
+            return redirect("admin/sanpham")->with('message', 'Xóa thành công');
+        }
+         return redirect()->back();
+    }
 }
