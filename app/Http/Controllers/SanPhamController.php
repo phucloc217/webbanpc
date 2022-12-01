@@ -33,18 +33,17 @@ class SanPhamController extends Controller
                 $sanpham->madanhmuc = $_POST['danhmuc'];
                 $sanpham->mota = $_POST['mota'];
                 if ($request->hasFile('img')) {
-                 $sanpham->anh = basename($request->file('img')->store('public/product-img', 'local'));
-                }
-                else{
+                    $sanpham->anh = basename($request->file('img')->store('public/product-img', 'local'));
+                } else {
                     $sanpham->anh = "default.jpg";
                 }
-                
+
                 $saved = $sanpham->save();
                 if ($saved) {
                     return redirect("/admin/sanpham/them")->with('message', 'Thêm thành công');
                 } else {
                     return redirect("/admin/sanpham/them")->with('err-msg', 'Thêm không thành công');
-                } 
+                }
             }
         } else {
             $data = Danhmuc::all();
@@ -53,14 +52,13 @@ class SanPhamController extends Controller
     }
     public function Delete($id)
     {
-        $sanpham = Sanpham::where("masp","=",$id)->first();
-        if($sanpham!=null)
-        {
-            if($sanpham->anh!="default.jpg")
-                unlink(storage_path('app/public/product-img/'.$sanpham->anh));
+        $sanpham = Sanpham::where("masp", "=", $id)->first();
+        if ($sanpham != null) {
+            if ($sanpham->anh != "default.jpg")
+                unlink(storage_path('app/public/product-img/' . $sanpham->anh));
             $sanpham->delete();
             return redirect("admin/sanpham")->with('message', 'Xóa thành công');
         }
-         return redirect()->back();
+        return redirect()->back();
     }
 }
