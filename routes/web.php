@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[SanPhamController::class, 'ListProduct']);
 
 
 Route::post('/admin/login', [UserController::class, 'login']);

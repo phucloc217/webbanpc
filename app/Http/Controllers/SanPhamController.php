@@ -61,4 +61,19 @@ class SanPhamController extends Controller
         }
         return redirect()->back();
     }
+
+    public function ListProduct($cate=null)
+    {
+        
+        if($cate==null)
+        {
+            $data = Sanpham::all();
+            return view("index", compact('data'));
+        }
+        else
+        {
+            $data = Sanpham::where('madanhmuc','=',$cate)->get();
+            return view("index", compact('data'));
+        }
+    }
 }
